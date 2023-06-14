@@ -9,8 +9,9 @@ const productRoutes = require('./routes/productRoutes');
 
 app.use("/user", productRoutes);
 
-const mongoConnect = require('./utils/database').mongoConnect;
+const database = require('./utils/database');
 
-mongoConnect(() => {
-    app.listen(3000);
-});
+app.listen(3000, () => {
+    console.log('Server is Running Successfully');
+    database();
+})
